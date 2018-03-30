@@ -43,3 +43,24 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 npm install glmw
 ````
 or the browser distribution from [here](//cdn.rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
+
+### Usage
+
+#### Instantiation
+This builds and compiles the WebAssembly module.
+
+````js
+  glwmatrix.init().then(instance => {
+    // instance contains the compiled, ready-to-use module
+  });
+````
+
+#### Original API
+You can assign the instance to ``window`` and receive a near 1:1 API to its original.
+
+````js
+glwmatrix.init().then(instance => {
+  Object.assign(window, instance);
+  vec3.create(); // native function, TADA!
+});
+````
