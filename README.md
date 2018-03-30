@@ -42,7 +42,7 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 ````
 npm install glmw
 ````
-or the browser distribution from [here](//cdn.rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
+or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
 
 ### Usage
 
