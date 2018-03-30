@@ -7,9 +7,9 @@
     "type": "git",
     "url": "git+ssh://git@github.com/maierfelix/glmw.git"
   },
-  "main": "dist/bundle-node.js",
-  "module": "dist/bundle-node.es.js",
-  "browser": "dist/bundle-browser.js",
+  "main": "dist/glmw-node.js",
+  "module": "dist/glmw-node.es.js",
+  "browser": "dist/glmw-browser.js",
   "keywords": [
     "matrix",
     "vector",

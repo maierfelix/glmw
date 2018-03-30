@@ -33,7 +33,7 @@ async function build() {
   const bundle = await rollup.rollup(config);
 
   const { code, map } = await bundle.generate(config);
-  fs.writeFileSync("dist/bundle.js", code, "utf-8");
+  fs.writeFileSync("dist/glmw-browser.js", code, "utf-8");
 
 }
 
