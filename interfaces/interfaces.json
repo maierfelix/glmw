@@ -1,0 +1,1240 @@
+{
+  "mat2": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "identity": {
+      "id": "identity",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transpose": {
+      "id": "transpose",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "invert": {
+      "id": "invert",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "adjoint": {
+      "id": "adjoint",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotate": {
+      "id": "rotate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotation": {
+      "id": "fromRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromScaling": {
+      "id": "fromScaling",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "LDU": {
+      "id": "LDU",
+      "returns": "ArrayExpression",
+      "specialInterface": true
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "multiplyScalar": {
+      "id": "multiplyScalar",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalarAndAdd": {
+      "id": "multiplyScalarAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    }
+  },
+  "mat2d": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "identity": {
+      "id": "identity",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "invert": {
+      "id": "invert",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotate": {
+      "id": "rotate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "translate": {
+      "id": "translate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotation": {
+      "id": "fromRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromScaling": {
+      "id": "fromScaling",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromTranslation": {
+      "id": "fromTranslation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalar": {
+      "id": "multiplyScalar",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalarAndAdd": {
+      "id": "multiplyScalarAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "mat3": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "fromMat4": {
+      "id": "fromMat4",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "identity": {
+      "id": "identity",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transpose": {
+      "id": "transpose",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "invert": {
+      "id": "invert",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "adjoint": {
+      "id": "adjoint",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "translate": {
+      "id": "translate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotate": {
+      "id": "rotate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromTranslation": {
+      "id": "fromTranslation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotation": {
+      "id": "fromRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromScaling": {
+      "id": "fromScaling",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromMat2d": {
+      "id": "fromMat2d",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromQuat": {
+      "id": "fromQuat",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "normalFromMat4": {
+      "id": "normalFromMat4",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "projection": {
+      "id": "projection",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalar": {
+      "id": "multiplyScalar",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalarAndAdd": {
+      "id": "multiplyScalarAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "mat4": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "identity": {
+      "id": "identity",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transpose": {
+      "id": "transpose",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "invert": {
+      "id": "invert",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "adjoint": {
+      "id": "adjoint",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "translate": {
+      "id": "translate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotate": {
+      "id": "rotate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateX": {
+      "id": "rotateX",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateY": {
+      "id": "rotateY",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateZ": {
+      "id": "rotateZ",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromTranslation": {
+      "id": "fromTranslation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromScaling": {
+      "id": "fromScaling",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotation": {
+      "id": "fromRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromXRotation": {
+      "id": "fromXRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromYRotation": {
+      "id": "fromYRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromZRotation": {
+      "id": "fromZRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotationTranslation": {
+      "id": "fromRotationTranslation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "getTranslation": {
+      "id": "getTranslation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "getScaling": {
+      "id": "getScaling",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "getRotation": {
+      "id": "getRotation",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotationTranslationScale": {
+      "id": "fromRotationTranslationScale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromRotationTranslationScaleOrigin": {
+      "id": "fromRotationTranslationScaleOrigin",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromQuat": {
+      "id": "fromQuat",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "frustum": {
+      "id": "frustum",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "perspective": {
+      "id": "perspective",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "perspectiveFromFieldOfView": {
+      "id": "perspectiveFromFieldOfView",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "ortho": {
+      "id": "ortho",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "lookAt": {
+      "id": "lookAt",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "targetTo": {
+      "id": "targetTo",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalar": {
+      "id": "multiplyScalar",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiplyScalarAndAdd": {
+      "id": "multiplyScalarAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "quat": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "identity": {
+      "id": "identity",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "setAxisAngle": {
+      "id": "setAxisAngle",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "getAxisAngle": {
+      "id": "getAxisAngle",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateX": {
+      "id": "rotateX",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateY": {
+      "id": "rotateY",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateZ": {
+      "id": "rotateZ",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "calculateW": {
+      "id": "calculateW",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "slerp": {
+      "id": "slerp",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "invert": {
+      "id": "invert",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "conjugate": {
+      "id": "conjugate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromMat3": {
+      "id": "fromMat3",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "fromEuler": {
+      "id": "fromEuler",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    }
+  },
+  "vec2": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "divide": {
+      "id": "divide",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "ceil": {
+      "id": "ceil",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "floor": {
+      "id": "floor",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "min": {
+      "id": "min",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "max": {
+      "id": "max",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "round": {
+      "id": "round",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scaleAndAdd": {
+      "id": "scaleAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "negate": {
+      "id": "negate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "inverse": {
+      "id": "inverse",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "normalize": {
+      "id": "normalize",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "cross": {
+      "id": "cross",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "lerp": {
+      "id": "lerp",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "random": {
+      "id": "random",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat2": {
+      "id": "transformMat2",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat2d": {
+      "id": "transformMat2d",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat3": {
+      "id": "transformMat3",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat4": {
+      "id": "transformMat4",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "vec3": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "divide": {
+      "id": "divide",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "ceil": {
+      "id": "ceil",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "floor": {
+      "id": "floor",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "min": {
+      "id": "min",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "max": {
+      "id": "max",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "round": {
+      "id": "round",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scaleAndAdd": {
+      "id": "scaleAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "negate": {
+      "id": "negate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "inverse": {
+      "id": "inverse",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "normalize": {
+      "id": "normalize",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "cross": {
+      "id": "cross",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "lerp": {
+      "id": "lerp",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "hermite": {
+      "id": "hermite",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "bezier": {
+      "id": "bezier",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "random": {
+      "id": "random",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat4": {
+      "id": "transformMat4",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat3": {
+      "id": "transformMat3",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformQuat": {
+      "id": "transformQuat",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateX": {
+      "id": "rotateX",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateY": {
+      "id": "rotateY",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "rotateZ": {
+      "id": "rotateZ",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "angle": {
+      "id": "angle",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "vec4": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "copy": {
+      "id": "copy",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "set": {
+      "id": "set",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "add": {
+      "id": "add",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "subtract": {
+      "id": "subtract",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "multiply": {
+      "id": "multiply",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "divide": {
+      "id": "divide",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "ceil": {
+      "id": "ceil",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "floor": {
+      "id": "floor",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "min": {
+      "id": "min",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "max": {
+      "id": "max",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "round": {
+      "id": "round",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scale": {
+      "id": "scale",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "scaleAndAdd": {
+      "id": "scaleAndAdd",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "negate": {
+      "id": "negate",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "inverse": {
+      "id": "inverse",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "normalize": {
+      "id": "normalize",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "lerp": {
+      "id": "lerp",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "random": {
+      "id": "random",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformMat4": {
+      "id": "transformMat4",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "transformQuat": {
+      "id": "transformQuat",
+      "returns": "out",
+      "specialInterface": false
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  }
+}

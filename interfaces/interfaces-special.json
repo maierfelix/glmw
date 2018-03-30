@@ -1,0 +1,385 @@
+{
+  "mat2": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "LDU": {
+      "id": "LDU",
+      "returns": "ArrayExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "mat2d": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 6,
+      "specialInterface": true
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "mat3": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 9,
+      "specialInterface": true
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "mat4": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 16,
+      "specialInterface": true
+    },
+    "determinant": {
+      "id": "determinant",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "frob": {
+      "id": "frob",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "quat": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    }
+  },
+  "vec2": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 2,
+      "specialInterface": true
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "vec3": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 3,
+      "specialInterface": true
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "angle": {
+      "id": "angle",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  },
+  "vec4": {
+    "create": {
+      "id": "create",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "clone": {
+      "id": "clone",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "fromValues": {
+      "id": "fromValues",
+      "returns": "out",
+      "allocation": 4,
+      "specialInterface": true
+    },
+    "distance": {
+      "id": "distance",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredDistance": {
+      "id": "squaredDistance",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "length": {
+      "id": "length",
+      "returns": "CallExpression",
+      "specialInterface": true
+    },
+    "squaredLength": {
+      "id": "squaredLength",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "dot": {
+      "id": "dot",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "str": {
+      "id": "str",
+      "returns": "BinaryExpression",
+      "specialInterface": true
+    },
+    "exactEquals": {
+      "id": "exactEquals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    },
+    "equals": {
+      "id": "equals",
+      "returns": "LogicalExpression",
+      "specialInterface": true
+    }
+  }
+}

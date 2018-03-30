@@ -1,0 +1,41 @@
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+
+<script src="gl-matrix.min.js"></script>
+<script src="../dist/bundle.js"></script>
+
+<script>
+  glwmatrix.init().then(instance => {
+    // => glwMatrix.mat4.create()
+    Object.assign(window.glwMatrix = {}, instance);
+    // => mat4.create()
+    // Object.assign(window, instance);
+    init();
+  });
+
+  function init() {
+    let gg = Math.random();
+    let max = 100000;
+    {
+      let ns = glwMatrix.mat4;
+      let a = ns.create();
+      let b = ns.create();
+      let now = performance.now();
+      for (let ii = 0; ii < max; ++ii) {
+        ns.multiply(a, a, b);
+      };
+      let then = performance.now();
+      console.log("WebAssembly:", then - now, "ms", ns.view(a));
+    }
+    {
+      let ns = mat4;
+      let a = ns.create();
+      let b = ns.create();
+      let now = performance.now();
+      for (let ii = 0; ii < max; ++ii) {
+        ns.mul(a, a, b);
+      };
+      let then = performance.now();
+      console.log("JavaScript:", then - now, "ms", a);
+    }
+  };
+</script>
