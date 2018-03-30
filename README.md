@@ -6,7 +6,7 @@
 
 #### Description
 
-This is a handcrafted near 1:1 experimental port of [gl-matrix](https://github.com/toji/gl-matrix) [v2.4.0](https://github.com/toji/gl-matrix/blob/master/package.json#L4) to WebAssembly.
+This is a handcrafted, experimental near 1:1 port of [gl-matrix](https://github.com/toji/gl-matrix) [v2.4.0](https://github.com/toji/gl-matrix/blob/master/package.json#L4) to WebAssembly.
 
 #### Performance
 
