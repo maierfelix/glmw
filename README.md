@@ -18,7 +18,7 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 
  - This library requires async instantiation, since WebAssembly has a [synchronous buffer instantiation size limitation](https://github.com/WebAssembly/design/issues/1190).
  - You need to manually free data, since there is no garbage collection yet (**be careful! :p**).
- - Methods like ``mat4.create()`` and ``mat4.multiply`` return a numeric address. To get an view on your data you need to use e.g. ``mat4.view(address)``. This returns a ``Float32Array`` which is a direct view onto the allocated data in the WebAssembly's memory. You can read/write from this view.
+ - Methods like ``mat4.create`` and ``mat4.multiply`` return a numeric address. To get an view on your data you need to use e.g. ``mat4.view(address)``. This returns a ``Float32Array`` which is a direct view onto the allocated data in WebAssembly's memory. You can manually read/write from this view.
  - WebAssembly's memory cannot be directly shared with JavaScript's memory. This means that you cannot pass an JavaScript array into methods like ``vec3.sqrLength``. You first have to convert it into the given module type (e.g. ``vec3.fromValues``) which then gives you the memory address of the allocated data.
 
 ### Bridged methods
