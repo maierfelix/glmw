@@ -9,18 +9,24 @@ import vec3_bridge from "./gl-matrix/bridges/vec3.js";
 import vec4_bridge from "./gl-matrix/bridges/vec4.js";
 import mat4_bridge from "./gl-matrix/bridges/mat4.js";
 
+let vec3 = {};
+let vec4 = {};
+let mat4 = {};
+
+function validateEnvironment() {
+  if (typeof WebAssembly === "undefined") {
+    throw new Error(`WebAssembly is not available or unsupported!`);
+  }
+};
+
 function init(resolve) {
   return new Promise(resolve => {
-    let ns = {
-      vec3: {},
-      vec4: {},
-      mat4: {}
-    };
+    validateEnvironment();
     load(module, imports).then(instance => {
-      createLinks(ns, "vec3", instance);
-      createLinks(ns, "vec4", instance);
-      createLinks(ns, "mat4", instance);
-      resolve(ns);
+      createLinks(vec3, "vec3", instance);
+      createLinks(vec4, "vec4", instance);
+      createLinks(mat4, "mat4", instance);
+      resolve(true);
     });
   });
 };
@@ -35,10 +41,9 @@ function getMethodsFromExportsByName(exports, name) {
   return module;
 };
 
-function createLinks(ns, name, instance) {
+function createLinks(module, name, instance) {
   let memory = instance.memory;
   let exports = instance.exports;
-  let module = ns[name];
   // link
   let methods = getMethodsFromExportsByName(exports, name);
   Object.assign(module, methods);
@@ -50,7 +55,9 @@ function createLinks(ns, name, instance) {
   };
 };
 
-let glwmatrix = {};
-glwmatrix.init = init;
-
-export default glwmatrix;
+export {
+  init,
+  vec3,
+  vec4,
+  mat4
+};

@@ -29,9 +29,6 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 
 ### What is left
 
-#### General
- - Remain the original ES API, so it can be used like e.g. ``import { vec4 } from "glmw"``;
-
 #### API modules
  - ``mat2``
  - ``mat2d``
@@ -48,17 +45,66 @@ or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist
 ### Usage
 
 #### Instantiation
+Before being able to use this library, you have to call it's ``init`` method which asynchronously compiles the WebAssembly module.
+
+If you call a ``glmw`` function before it got instantiated somewhere, then a ``TypeError`` is thrown, because the function is simply not compiled yet.
+
+#### Instantiation/Browser
 This builds and compiles the WebAssembly module.
 ````js
-  glwmatrix.init().then(instance => {
-    // instance contains the compiled, ready-to-use module
-  });
+glmw.init().then(ready => {
+  // glmw is now ready and can be used anywhere
+});
+````
+
+#### Instantiation/ES
+Import and call the init method in your main file. Afterwards you can use ``glmw`` **anywhere**.
+
+*index.js*
+````js
+import { init, vec3 } from "glmw";
+import calc from "./calc";
+
+init().then(ready => {
+  // glmw is now ready and can be used anywhere
+  calc();
+});
+````
+
+*calc.js*
+````js
+import { mat4 } from "glmw";
+export default function() {
+  return mat4.create();
+};
+````
+
+#### Instantiation/Node
+Require and call the init method in your main file. Afterwards you can use ``glmw`` **anywhere**.
+
+*index.js*
+````js
+const glmw = require("glmw");
+const calc = require("./calc");
+
+glmw.init().then(ready => {
+  // glmw is now ready and can be used anywhere
+  calc();
+});
+````
+
+*calc.js*
+````js
+const { mat4 } = require("glmw");
+module.exports = function() {
+  return mat4.create();
+};
 ````
 
 #### Original API
 You can assign the instance to ``window`` and receive a near 1:1 API to its original.
 ````js
-glwmatrix.init().then(instance => {
+glmw.init().then(instance => {
   Object.assign(window, instance);
   vec3.create(); // native function, TADA!
 });

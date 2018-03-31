@@ -1,4 +1,4 @@
-var glmw = (function () {
+var glmw = (function (exports) {
 'use strict';
 
 var imports = {
@@ -73,7 +73,7 @@ var vec3_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     var view = memory.F32.subarray(address >> 2, (address >> 2) + 3);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -101,7 +101,7 @@ var vec4_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     var view = memory.F32.subarray(address >> 2, (address >> 2) + 4);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -134,7 +134,7 @@ var mat4_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     var view = memory.F32.subarray(address >> 2, (address >> 2) + 16);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -149,18 +149,24 @@ var mat4_bridge = function(module, memory) {
   };
 };
 
+var vec3 = {};
+var vec4 = {};
+var mat4 = {};
+
+function validateEnvironment() {
+  if (typeof WebAssembly === "undefined") {
+    throw new Error("WebAssembly is not available or unsupported!");
+  }
+}
+
 function init(resolve) {
   return new Promise(function (resolve) {
-    var ns = {
-      vec3: {},
-      vec4: {},
-      mat4: {}
-    };
+    validateEnvironment();
     load(binary, imports).then(function (instance) {
-      createLinks(ns, "vec3", instance);
-      createLinks(ns, "vec4", instance);
-      createLinks(ns, "mat4", instance);
-      resolve(ns);
+      createLinks(vec3, "vec3", instance);
+      createLinks(vec4, "vec4", instance);
+      createLinks(mat4, "mat4", instance);
+      resolve(true);
     });
   });
 }
@@ -175,10 +181,9 @@ function getMethodsFromExportsByName(exports, name) {
   return module;
 }
 
-function createLinks(ns, name, instance) {
+function createLinks(module, name, instance) {
   var memory = instance.memory;
   var exports = instance.exports;
-  var module = ns[name];
   // link
   var methods = getMethodsFromExportsByName(exports, name);
   Object.assign(module, methods);
@@ -190,9 +195,11 @@ function createLinks(ns, name, instance) {
   }
 }
 
-var glwmatrix = {};
-glwmatrix.init = init;
+exports.init = init;
+exports.vec3 = vec3;
+exports.vec4 = vec4;
+exports.mat4 = mat4;
 
-return glwmatrix;
+return exports;
 
-}());
+}({}));

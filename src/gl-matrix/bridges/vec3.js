@@ -11,7 +11,7 @@ export default function(module, memory) {
   // @view
   module.view = function(address) {
     let view = memory.F32.subarray(address >> 2, (address >> 2) + 3);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals

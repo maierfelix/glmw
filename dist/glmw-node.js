@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 let imports = {
   initialMemory: 0,
   imports: {
@@ -70,7 +72,7 @@ var vec3_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     let view = memory.F32.subarray(address >> 2, (address >> 2) + 3);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -98,7 +100,7 @@ var vec4_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     let view = memory.F32.subarray(address >> 2, (address >> 2) + 4);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -131,7 +133,7 @@ var mat4_bridge = function(module, memory) {
   // @view
   module.view = function(address) {
     let view = memory.F32.subarray(address >> 2, (address >> 2) + 16);
-    view.address = address;
+    //view.address = address;
     return view;
   };
   // @exactEquals
@@ -146,18 +148,24 @@ var mat4_bridge = function(module, memory) {
   };
 };
 
+let vec3 = {};
+let vec4 = {};
+let mat4 = {};
+
+function validateEnvironment() {
+  if (typeof WebAssembly === "undefined") {
+    throw new Error(`WebAssembly is not available or unsupported!`);
+  }
+}
+
 function init(resolve) {
   return new Promise(resolve => {
-    let ns = {
-      vec3: {},
-      vec4: {},
-      mat4: {}
-    };
+    validateEnvironment();
     load(binary, imports).then(instance => {
-      createLinks(ns, "vec3", instance);
-      createLinks(ns, "vec4", instance);
-      createLinks(ns, "mat4", instance);
-      resolve(ns);
+      createLinks(vec3, "vec3", instance);
+      createLinks(vec4, "vec4", instance);
+      createLinks(mat4, "mat4", instance);
+      resolve(true);
     });
   });
 }
@@ -172,10 +180,9 @@ function getMethodsFromExportsByName(exports, name) {
   return module;
 }
 
-function createLinks(ns, name, instance) {
+function createLinks(module, name, instance) {
   let memory = instance.memory;
   let exports = instance.exports;
-  let module = ns[name];
   // link
   let methods = getMethodsFromExportsByName(exports, name);
   Object.assign(module, methods);
@@ -187,7 +194,7 @@ function createLinks(ns, name, instance) {
   }
 }
 
-let glwmatrix = {};
-glwmatrix.init = init;
-
-module.exports = glwmatrix;
+exports.init = init;
+exports.vec3 = vec3;
+exports.vec4 = vec4;
+exports.mat4 = mat4;
