@@ -42,14 +42,12 @@ npm install glmw
 ````
 or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
 
-### Usage
-
-#### Instantiation
+### Instantiation
 Before being able to use this library, you have to call it's ``init`` method which asynchronously compiles the WebAssembly module.
 
 If you call a ``glmw`` function before it got instantiated somewhere, then a ``TypeError`` is thrown, because the function is simply not compiled yet.
 
-#### Instantiation/Browser
+#### Browser
 This builds and compiles the WebAssembly module.
 ````js
 glmw.init().then(ready => {
@@ -57,7 +55,7 @@ glmw.init().then(ready => {
 });
 ````
 
-#### Instantiation/ES
+#### ES
 Import and call the init method in your main file. Afterwards you can use ``glmw`` **anywhere**.
 
 *index.js*
@@ -79,7 +77,7 @@ export default function() {
 };
 ````
 
-#### Instantiation/Node
+#### Node
 Require and call the init method in your main file. Afterwards you can use ``glmw`` **anywhere**.
 
 *index.js*
@@ -101,16 +99,9 @@ module.exports = function() {
 };
 ````
 
-#### Original API
-You can assign the instance to ``window`` and receive a near 1:1 API to its original.
-````js
-glmw.init().then(instance => {
-  Object.assign(window, instance);
-  vec3.create(); // native function, TADA!
-});
-````
+### Usage
 
-#### Applied usage
+#### Simple example
 As you can see here, the API didn't really change.
 ````js
 let a = vec3.create();
