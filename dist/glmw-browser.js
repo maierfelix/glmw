@@ -77,12 +77,14 @@ var vec3_bridge = function(module, memory) {
     return view;
   };
   // @exactEquals
+  var _exactEquals = module.exactEquals;
   module.exactEquals = function(a, b) {
-    return !!module.exactEquals(a.address, b.address);
+    return !!_exactEquals(a, b);
   };
   // @equals
+  var _equals = module.equals;
   module.equals = function(a, b) {
-    return !!module.equals(a.address, b.address);
+    return !!_equals(a, b);
   };
 };
 
@@ -103,12 +105,14 @@ var vec4_bridge = function(module, memory) {
     return view;
   };
   // @exactEquals
+  var _exactEquals = module.exactEquals;
   module.exactEquals = function(a, b) {
-    return !!module.exactEquals(a.address, b.address);
+    return !!_exactEquals(a, b);
   };
   // @equals
+  var _equals = module.equals;
   module.equals = function(a, b) {
-    return !!module.equals(a.address, b.address);
+    return !!_equals(a, b);
   };
 };
 
@@ -134,12 +138,14 @@ var mat4_bridge = function(module, memory) {
     return view;
   };
   // @exactEquals
+  var _exactEquals = module.exactEquals;
   module.exactEquals = function(a, b) {
-    return !!module.exactEquals(a.address, b.address);
+    return !!_exactEquals(a, b);
   };
   // @equals
+  var _equals = module.equals;
   module.equals = function(a, b) {
-    return !!module.equals(a.address, b.address);
+    return !!_equals(a, b);
   };
 };
 

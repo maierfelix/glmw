@@ -1,6 +1,6 @@
 {
   "name": "glmw",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WebAssembly powered Matrix and Vector library",
   "license": "MIT",
   "repository": {
