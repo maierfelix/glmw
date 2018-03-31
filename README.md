@@ -5,17 +5,14 @@
 <br/>
 
 ### Description
-
 This is a handcrafted, experimental near 1:1 port of [gl-matrix](https://github.com/toji/gl-matrix) [v2.4.0](https://github.com/toji/gl-matrix/blob/master/package.json#L4) to WebAssembly.
 
 ### Performance
-
 In most cases *glmw* runs more than twice as fast as *gl-matrix*.
 
 Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call overhead.
 
 ### Limitations
-
  - This library requires async instantiation, since WebAssembly has a [synchronous buffer instantiation size limitation](https://github.com/WebAssembly/design/issues/1190).
  - You need to manually free data, since there is no garbage collection yet (**be careful! :p**).
  - Methods like ``mat4.create`` and ``mat4.multiply`` return a numeric address. To get an view on your data you need to use e.g. ``mat4.view(address)``. This returns a ``Float32Array`` which is a direct view onto the allocated data in WebAssembly's memory. You can manually read/write from this view.
@@ -35,7 +32,7 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 #### General
  - Remain the original ES API, so it can be used like e.g. ``import { vec4 } from "glmw"``;
 
-#### API modules:
+#### API modules
  - ``mat2``
  - ``mat2d``
  - ``mat3``
@@ -43,7 +40,6 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
  - ``quat``
 
 ### Installation
-
 ````
 npm install glmw
 ````
@@ -53,7 +49,6 @@ or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist
 
 #### Instantiation
 This builds and compiles the WebAssembly module.
-
 ````js
   glwmatrix.init().then(instance => {
     // instance contains the compiled, ready-to-use module
@@ -62,7 +57,6 @@ This builds and compiles the WebAssembly module.
 
 #### Original API
 You can assign the instance to ``window`` and receive a near 1:1 API to its original.
-
 ````js
 glwmatrix.init().then(instance => {
   Object.assign(window, instance);
@@ -77,4 +71,18 @@ let a = vec3.create();
 let b = vec3.fromValues(1.0, 2.0, 3.0);
 vec3.add(a, a, b);
 console.log( vec3.view(a) ); // Float32Array(3) [1, 2, 3]
+````
+
+#### Creating views
+First, this is what *glmw* returns to you. Instead of references, only the numeric addresses are returned:
+````js
+a = mat4.create();          // 65688
+b = mat4.create();          // 65760
+c = mat4.multiply(a, a, b); // 65688
+````
+You can change data by hand this way:
+````js
+vA = mat4.view(a); // Float32Array([1, 0, 0...])
+vA[0] = 2;         // you can now read/write
+vA;                // Float32Array([2, 0, 0...])
 ````
