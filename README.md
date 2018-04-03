@@ -43,12 +43,15 @@ npm install glmw
 or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
 
 ### Instantiation
-Before being able to use this library, you have to call it's ``init`` method which asynchronously compiles the WebAssembly module.
+Before being able to use the library, you have to first call it's ``init`` method which then asynchronously compiles the WebAssembly module.
 
 If you call a ``glmw`` function before it got instantiated somewhere, then a ``TypeError`` is thrown, because the function is simply not compiled yet.
 
 #### Browser
 This builds and compiles the WebAssembly module.
+````html
+<script src="//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js"></script>
+````
 ````js
 glmw.init().then(ready => {
   // glmw is now ready and can be used anywhere
@@ -82,10 +85,10 @@ Require and call the init method in your main file. Afterwards you can use ``glm
 
 *index.js*
 ````js
-const glmw = require("glmw");
+const { init, vec3 } = require("glmw");
 const calc = require("./calc");
 
-glmw.init().then(ready => {
+init().then(ready => {
   // glmw is now ready and can be used anywhere
   calc();
 });
@@ -122,4 +125,12 @@ You can change data by hand this way:
 vA = mat4.view(a); // Float32Array([1, 0, 0...])
 vA[0] = 2;         // you can now read/write
 vA;                // Float32Array([2, 0, 0...])
+````
+
+#### Freeing data
+Since WebAssembly doesn't have garbage collection yet, you have to be careful when and where you allocate data.
+You can free data by calling ``*.free``:
+````js
+a = mat4.create(); // allocate data for a
+mat4.free(a);      // a's data is now freed
 ````
