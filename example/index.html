@@ -3,13 +3,8 @@
 
 <script>
   glmw.init().then(instance => {
-    // => glmw.mat4.create()
-    Object.assign(window.glmw = {}, instance);
-    // => mat4.create()
-    // Object.assign(window, instance);
     init();
   });
-
   function init() {
     // glmw
     {
@@ -30,7 +25,7 @@
       let b = ns.create();
       let now = performance.now();
       for (let ii = 0; ii < 1000; ++ii) {
-        ns.mul(a, a, b);
+        ns.multiply(a, a, b);
       };
       let then = performance.now();
       console.log("JavaScript:", then - now, "ms", a);
