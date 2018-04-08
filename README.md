@@ -14,6 +14,9 @@ Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call 
 
 Creating views with ``*.view`` is cheap, because they return a typed ``subarray`` of the WebAssembly module's memory buffer.
 
+### Benchmarks
+ - [**mat4**](https://maierfelix.github.io/glmw/mat4/)
+
 ### Limitations
  - This library requires async instantiation, since WebAssembly has a [synchronous buffer instantiation size limitation](https://github.com/WebAssembly/design/issues/1190).
  - You need to manually free data, since there is no garbage collection yet (**be careful! :p**).
