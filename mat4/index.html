@@ -1,0 +1,275 @@
+<script src="../gl-matrix.min.js"></script>
+<script src="//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js"></script>
+
+<script>
+
+  if (typeof WebAssembly !== "undefined") {
+    glmw.init().then(instance => {
+      init();
+    });
+  } else {
+    alert(`Your Browser doesn't support WebAssembly!`);
+  }
+
+  let times = 10000;
+
+  function init() {
+    postTestResult("mat4.multiply", defaultTest("multiply"));
+    postTestResult("mat4.create", defaultTest("create"));
+    postTestResult("mat4.copy", defaultTest("copy"));
+    postTestResult("mat4.set", defaultTest("set"));
+    postTestResult("mat4.identity", defaultTest("identity"));
+    postTestResult("mat4.invert", defaultTest("invert"));
+    postTestResult("mat4.adjoint", defaultTest("adjoint"));
+    postTestResult("mat4.determinant", defaultTest("determinant"));
+    postTestResult("mat4.rotateX", defaultTest("rotateX"));
+    postTestResult("mat4.rotateY", defaultTest("rotateY"));
+    postTestResult("mat4.rotateZ", defaultTest("rotateZ"));
+    postTestResult("mat4.frustum", defaultTest("frustum"));
+    postTestResult("mat4.perspective", defaultTest("perspective"));
+    postTestResult("mat4.multiplyScalarAndAdd", defaultTest("multiplyScalarAndAdd"));
+    postTestResult("mat4.equals", defaultTest("equals"));
+    postTestResult("mat4.mul", defaultTest("mul"));
+    postFinalTestResult("GLMW", finalBench.glmw);
+    postFinalTestResult("GLM", finalBench.glm);
+  };
+
+  function postFinalTestResult(label, time) {
+    let el = document.createElement("div");
+    let a = (time).toPrecision(4);
+    el.innerHTML = `${label}: ${a}ms`;
+    el.style.color = `#8bc34a`;
+    document.body.insertAdjacentElement("afterbegin", document.createElement("hr"));
+    document.body.insertAdjacentElement("afterbegin", el);
+  };
+
+  let finalBench = { glm: 0, glmw: 0 };
+  function postTestResult(label, bench) {
+    let pbw = bench.glmw < bench.glm;
+    let el = document.createElement("div");
+    el.innerHTML = `${label}:`;
+    el.appendChild(document.createElement("br"));
+    {
+      let a = document.createElement("div");
+      a.innerHTML = `GLM: ${bench.glm}ms`;
+      a.style.color = `#f0db4f`;
+      a.style.fontWeight = !pbw ? "bold" : "100";
+      el.appendChild(a);
+    }
+    {
+      let a = document.createElement("div");
+      a.innerHTML = `GLMW: ${bench.glmw}ms`;
+      a.style.color = `#654ff0`;
+      a.style.fontWeight = pbw ? "bold" : "100";
+      el.appendChild(a);
+    }
+    el.appendChild(document.createElement("hr"));
+    document.body.appendChild(el);
+    finalBench.glm += bench.glm;
+    finalBench.glmw += bench.glmw;
+  };
+
+  function defaultTest(name) {
+    let time = { glm: 0, glmw: 0 };
+    time.glm = window[name](window.mat4);
+    time.glmw = window[name](glmw.mat4);
+    return time;
+  };
+
+  function createRandomMat4(ns) {
+    if (ns === glmw.mat4) {
+      let a = ns.create();
+      let vA = ns.view(a);
+      for (let ii = 0; ii < 16; ++ii) vA[ii] = Math.random();
+      return a;
+    } else {
+      let a = ns.create();
+      for (let ii = 0; ii < 16; ++ii) a[ii] = Math.random();
+      return a;
+    }
+  };
+
+  function copy(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.copy(a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function create(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < 1000; ++ii) {
+      ns.create();
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function multiply(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.multiply(a, a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function set(ns) {
+    let a = createRandomMat4(ns);
+    let r = new Float32Array(16).map(Math.random);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.set(a,
+        Math.random(), Math.random(), Math.random(), Math.random(),
+        Math.random(), Math.random(), Math.random(), Math.random(),
+        Math.random(), Math.random(), Math.random(), Math.random(),
+        Math.random(), Math.random(), Math.random(), Math.random()
+      );
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function identity(ns) {
+    let a = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.identity(a);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function invert(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.invert(a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function adjoint(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.adjoint(a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function determinant(ns) {
+    let a = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.determinant(a);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function rotateX(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let r = Math.random() * 10;
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.rotateX(a, b, r);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function rotateY(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let r = Math.random() * 10;
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.rotateY(a, b, r);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function rotateZ(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let r = Math.random() * 10;
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.rotateZ(a, b, r);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function frustum(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.frustum(a, Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random());
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function perspective(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.perspective(a, Math.random(), Math.random(), Math.random(), Math.random());
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function multiplyScalarAndAdd(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let c = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.multiplyScalarAndAdd(a, b, c, 1.0 / ii);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function equals(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.equals(a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+  function mul(ns) {
+    let a = createRandomMat4(ns);
+    let b = createRandomMat4(ns);
+    let now = performance.now();
+    for (let ii = 0; ii < times; ++ii) {
+      ns.mul(a, a, b);
+    };
+    let then = performance.now();
+    return then - now;
+  };
+
+</script>
