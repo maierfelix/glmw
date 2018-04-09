@@ -5,12 +5,12 @@
 <br/>
 
 ### Description
-This is a handcrafted, experimental near 1:1 port of [gl-matrix](https://github.com/toji/gl-matrix) [v2.4.0](https://github.com/toji/gl-matrix/blob/master/package.json#L4) to WebAssembly.
+This is an experimental near 1:1 port of [gl-matrix](https://github.com/toji/gl-matrix) [v2.4.0](https://github.com/toji/gl-matrix/blob/master/package.json#L4) to WebAssembly.
 
 ### Performance
-In most cases *glmw* runs more than twice as fast as *gl-matrix*.
+In many cases *glmw* runs more than twice as fast as *gl-matrix*.
 
-Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some call overhead.
+Some methods like ``*.str`` and ``*.equals`` are bridged and bring in some extra overhead.
 
 Creating views with ``*.view`` is cheap, because they return a typed ``subarray`` of the WebAssembly module's memory buffer.
 
@@ -22,6 +22,7 @@ Creating views with ``*.view`` is cheap, because they return a typed ``subarray`
  - You need to manually free data, since there is no garbage collection yet (**be careful! :p**).
  - Methods like ``mat4.create`` and ``mat4.multiply`` return a numeric address. To get an view on your data you need to use e.g. ``mat4.view(address)``. This returns a ``Float32Array`` which is a direct view onto the allocated data in WebAssembly's memory. You can manually read/write from this view.
  - WebAssembly's memory cannot be directly shared with JavaScript's memory. This means that you cannot pass an JavaScript array into methods like ``vec3.sqrLength``. You first have to convert it into the given module type (e.g. ``vec3.fromValues``) which then gives you the memory address of the allocated data.
+ - There is some overhead when calling from JavaScript->WebAssembly, but it seems acceptable. Slight performance drops are noticeable when calling a function more than ~15.000 times.
 
 ### Bridged methods
  - ``*.str`` so a *JavaScript String* is returned.
@@ -48,7 +49,7 @@ npm install glmw
 or the browser distribution from [here](//rawgit.com/maierfelix/glmw/master/dist/glmw-browser.js).
 
 ### Instantiation
-Before being able to use the library, you have to first call it's ``init`` method which then asynchronously compiles the WebAssembly module.
+Before being able to use the library, you first have to call it's ``init`` method which then asynchronously compiles the WebAssembly module.
 
 If you call a ``glmw`` function before it got instantiated somewhere, then a ``TypeError`` is thrown, because the function is simply not compiled yet.
 
