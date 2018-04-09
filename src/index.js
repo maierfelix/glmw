@@ -19,7 +19,7 @@ function validateEnvironment() {
   }
 };
 
-function init(resolve) {
+function init() {
   return new Promise(resolve => {
     validateEnvironment();
     load(module, imports).then(instance => {

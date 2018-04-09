@@ -21,6 +21,8 @@ export float *vec4(create)() {
   float *out = malloc(VEC_SIZE_4 * sizeof(*out));
   out[0] = 0;
   out[1] = 0;
+  out[2] = 0;
+  out[3] = 0;
   return out;
 };
 

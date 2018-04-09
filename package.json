@@ -1,6 +1,6 @@
 {
   "name": "glmw",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "WebAssembly powered Matrix and Vector library",
   "license": "MIT",
   "repository": {
@@ -30,8 +30,7 @@
   "scripts": {
     "dist": "npm run browser && npm run build",
     "build": "rollup -c rollup/rollup.config.cjs.js && rollup -c rollup/rollup.config.es.js",
-    "browser": "node rollup/rollup.bundle.js",
-    "rofl": "node rollup/rollup.bundle.js"
+    "browser": "node rollup/rollup.bundle.js"
   },
   "devDependencies": {
     "rollup": "^0.47.2",
